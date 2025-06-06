@@ -8,13 +8,13 @@ import {auth} from './firebase';
 function Header() {
     const [{basket,user},dispatch] = useStateValue();
     const handleAuthentication = () => {
-        if(user) {
+        if(user) { 
             auth.signOut();
-        }
+        } 
     }
   return (
     <div className='header'>
-        <Link to='/'> <img className='header_logo' src='https://pngimg.com/uploads/amazon/amazon_PNG11.png'/> </Link>
+        <Link to='/'> <img className='header_logo' src='/amazonlogoo.png'/> </Link>
      
     <div className='header_search'>
         <input className="header_searchInput" type='text'/>
@@ -47,7 +47,15 @@ function Header() {
                 Prime
             </span>
         </div>
-        <Link to="checkout"> 
+        <Link to="/greenstorecheckout">
+      <div className='header_option green_store'>
+          <button className="greenStoreButton">
+              Green Store
+          </button>
+      </div>
+    </Link>
+
+        <Link to="/checkout"> 
         <div className='header_optionbasket'>
         <ShoppingBasketIcon/>
         <span className='header__optionlinetwo header_basketcount'>

@@ -7,7 +7,8 @@ function Home() {
       <div className='home_container'>
         <img className="home_image" src="/amazon.jpg"  />
         <div className='home_row'>
-            <Product id="123431 " title="Happy Cove Solid Husk Eco Friendly 10 inch Dinner Plates|Rice Husk and Bamboo Fibre|Set of 3 with 3 Bowls (200ml) and 3 Sauce Bowls - Durable, Microwave Safe, Multicolour" price = {448} 
+            <Product id="123431 " title="Cutting EDGE Plastic Round Solid Double Color Dinner Plates for Daily Use, Party, Home, Kitchen, Unbreakable, Dishwasher, Freezer Safe (Black, Set of 6)
+" price = {448} 
             image = "/plates.png" 
             rating={5}/>
              <Product id="12349 " title="Beco Bamboo Soft Facial Tissue Papers- 100 Pulls (Pack of 6), 600 Pulls - 2 ply,100% Natural and Ecofriendly, Soft tissue box/pack" price = {211} 
@@ -32,7 +33,7 @@ function Home() {
             image = "/food.png" 
             rating={1}/>
             
-        </div>
+        </div> 
 
       </div>
     </div>

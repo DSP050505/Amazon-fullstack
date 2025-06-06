@@ -4,6 +4,8 @@ import Header from "./Header";
 import Home from "./Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Checkout from "./Checkout";
+import GreenStoreCheckout from "./GreenStoreCheckout"
+import GreenStoreHeader from "./GreenStoreHeader";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import {auth} from "./firebase"
@@ -35,6 +37,7 @@ function App() {
       <div className="app">
         
         <Routes>
+          <Route path="/greenstorecheckout" element={[<GreenStoreHeader />,<GreenStoreCheckout />]}/>
           <Route path="/login" element={[<Login />]}/>
           <Route path="/checkout" element={[<Header />, <Checkout />]}/>
           <Route path="/" element={[ <Header />,<Home />]}/>

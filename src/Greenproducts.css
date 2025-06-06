@@ -1,0 +1,126 @@
+.Greenproduct {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 1;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    max-height: 400px;
+    min-width: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.Greenproduct_rating {
+    display: flex;
+    margin-top: 5px;
+}
+
+.Greenproduct > img {
+    max-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.Greenproduct_price {
+    margin-top: 5px;
+}
+
+.Greenproduct_info {
+    height: 100px;
+    margin-bottom: 15px;
+    width: 100%;
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+.EcoPulseContainer {
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.EcoPulseBar {
+    height: 12px;
+    border-radius: 6px;
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.EcoPulseLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4caf50;
+    min-width: 60px;
+    text-align: right;
+    white-space: nowrap; /* Prevent label from wrapping */
+}
+
+.Greenproduct_buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-button {
+    background: #f0c14b;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31;
+    color: #111;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 90%;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
+.certification-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 90%;
+    justify-content: center;
+    
+}
+
+.certification-icon {
+    width: 30px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.certifications-btn {
+    background: #d4edda;
+    border: 1px solid #4caf50;
+    color: #2e7d32;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 375px;
+}
+
+.certifications-btn:hover {
+    background: #c8e6c9;
+}
