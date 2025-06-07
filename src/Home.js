@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className='home'>
       <div className='home_container'>
-        <img className="home_image" src="/amazon.jpg"  />
+        <img className="home_image" src="/front.jpg"  />
         <div className='home_row'>
             <Product id="123431 " title="Cutting EDGE Plastic Round Solid Double Color Dinner Plates for Daily Use, Party, Home, Kitchen, Unbreakable, Dishwasher, Freezer Safe (Black, Set of 6)
 " price = {448} 
@@ -36,6 +36,8 @@ function Home() {
         </div> 
 
       </div>
+     
+      
     </div>
   ); 
 }

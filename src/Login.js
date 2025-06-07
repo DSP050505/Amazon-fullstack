@@ -40,7 +40,7 @@ function Login() {
   return (
     <div className="login">
       <Link to="/">
-        <img className="login_logo" src="/loginamazon.png" alt="Amazon Logo" />
+        <img className="login_logo" src="/amazonblack.png" alt="Amazon Logo" />
       </Link>
 
       <div className="login__container">
@@ -54,19 +54,22 @@ function Login() {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
           <button type="submit" onClick={signIn} className="login_signInButton">
-            Sign In
+            Sign In Amazon Clone
           </button>
         </form>
 
         <p>
           By signing-in you agree to the AMAZON CLONE Conditions of Use & Sale. Please
-          see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
+          see our Privacy Notice, this is purely for educational purposes !!our Cookies Notice and our Interest-Based Ads Notice.
         </p>
 
         <button onClick={register} className="login_registerButton">
-          Create your Amazon Account
+          Create your Amazon-Clone Account
         </button>
       </div>
+      <footer style={{ fontSize: '12px', color: 'gray', textAlign: 'center', marginTop: '40px' }}>
+        This is a fictional educational project. Not affiliated with Amazon or any real company.
+      </footer>
     </div>
   );
 }

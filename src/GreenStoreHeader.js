@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className='greenstoreheader'>
         <Link to='/'> 
-            <img className='greenstoreheader_logo' src='/amazonlogoo.png'/> 
+            <img className='greenstoreheader_logo' src='/amazonclonewhite.png'/> 
         </Link>
      
         <div className='greenstoreheader_search'>
@@ -58,6 +58,7 @@ function Header() {
                 </div>
             </Link>
         </div>
+        
     </div>
   );
 }

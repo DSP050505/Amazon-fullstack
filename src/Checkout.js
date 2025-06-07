@@ -27,6 +27,9 @@ function Checkout() {
            <Subtotal />
             
         </div>
+        <footer style={{ fontSize: '12px', color: 'gray', textAlign: 'center', marginTop: '40px' }}>
+        This is a fictional educational project. Not affiliated with Amazon or any real company.
+      </footer>
     </div>
   )
 }

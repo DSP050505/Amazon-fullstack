@@ -41,15 +41,21 @@
     margin-top: 15px;
     font-size:12px;
 }
-.login_signInButton{
+.login_signInButton {
   background: #f0c14b;
   border: 1px solid;
-  margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
-  border-radius: 2px;
-  width:100%;
-  height: 30px;
-
+  border-color: #a88734 #9c7e31;
+  color: #111;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 50%;
+  cursor: pointer;
+  max-width: 400px;
+  
+  /* Center alignment */
+  display: block;
+  margin: 0 auto;
 }
 .login_registerButton{
     
