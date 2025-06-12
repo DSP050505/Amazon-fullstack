@@ -1,9 +1,12 @@
 import React from 'react';
 import "./Product.css";
+import { useNavigate } from "react-router-dom";
 import { useStateValue } from './StateProvider';
+import { Link } from "react-router-dom";
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, title, image, price, rating, category = "non-eco-friendly" }) {
   const [{ basket }, dispatch] = useStateValue();
+  const navigate = useNavigate();
 
   const addToBasket = () => {
     dispatch({
@@ -14,7 +17,21 @@ function Product({ id, title, image, price, rating }) {
         image,
         price,
         rating,
+        category
       },
+    });
+  };
+
+  const handleImpactProduct = () => {
+    navigate('/impactproduct', {
+      state: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+        category
+      }
     });
   };
 
@@ -26,10 +43,17 @@ function Product({ id, title, image, price, rating }) {
           <small>₹</small>
           <strong>{price}</strong>
         </p>
-        <div className='product_rating'>
-          {Array(rating).fill().map((_, i) => (
-            <p key={i}>⭐</p>
-          ))}
+        <div className='product_rating_container'>
+          <div className='product_rating'>
+            {Array(rating).fill().map((_, i) => (
+              <p key={i}>⭐</p>
+            ))}
+          </div>
+          {category === "eco-friendly" && (
+            <div className='eco-friendly-badge'>
+              🌱 Eco Friendly
+            </div>
+          )}
         </div>
       </div>
 
@@ -37,17 +61,21 @@ function Product({ id, title, image, price, rating }) {
 
       <div className="product_buttons">
         <button onClick={addToBasket} className="add-button">Add to Basket</button>
-
-        <div className="impact-product-section">
-          <img src="/impactproduct.png" alt="Eco Icon" className="impact-icon" />
-          <button onClick={addToBasket} className="impact-button">Impact Product</button>
-        </div>
+        
+        {category === "eco-friendly" && (
+          <div className="impact-product-section">
+            <img src="/impactproduct.png" alt="Eco Icon" className="impact-icon" />
+            <button onClick={handleImpactProduct} className="impact-button">
+              Impact Product
+            </button>
+          </div>
+        )}
       </div>
-      <footer style={{ fontSize: '12px', color: 'gray', textAlign: 'center', marginTop: '40px' }}>
-        This is a fictional educational project. Not affiliated with Amazon or any real company.
-      </footer>
+      
+      <Link to="/esgservices">
+        <button className="esg-button">ESG Services</button>
+      </Link>
     </div>
-    
   );
 }
 

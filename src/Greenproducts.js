@@ -1,28 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Greenproducts.css";
+import { Link } from "react-router-dom";
 import { useStateValue } from './StateProvider';
 
-function Product({ id, title, image, price, rating }) {
+function Greenproducts({ id, title, image, price, rating, certifications = [] }) {
     const [{ basket }, dispatch] = useStateValue();
+    const [showCertDialog, setShowCertDialog] = useState(false);
 
     const addToBasket = () => {
         dispatch({
             type: "ADD_TO_BASKET",
-            item: {
-                id,
-                title,
-                image,
-                price,
-                rating,
-            },
+            item: { id, title, image, price, rating },
         });
     };
 
-    const showCertifications = () => {
-        console.log("Showing certifications for:", title);
-    };
-
-    // Helper to interpolate between two RGB colors
     const interpolateColor = (color1, color2, factor) => {
         const result = color1.slice();
         for (let i = 0; i < 3; i++) {
@@ -31,16 +22,13 @@ function Product({ id, title, image, price, rating }) {
         return `rgb(${result[0]}, ${result[1]}, ${result[2]})`;
     };
 
-    // Return dynamic color based on rating %
     const getEcoColor = (percentage) => {
         const p = Math.min(100, Math.max(0, percentage));
         if (p <= 50) {
             const ratio = p / 50;
-            // Orange to Yellow
             return interpolateColor([255, 87, 34], [255, 235, 59], ratio);
         } else {
             const ratio = (p - 50) / 50;
-            // Yellow to Green
             return interpolateColor([255, 235, 59], [76, 175, 80], ratio);
         }
     };
@@ -59,7 +47,6 @@ function Product({ id, title, image, price, rating }) {
 
             <img src={image} alt={title} />
 
-            {/* Eco Pulse Score Bar Below Image */}
             <div className="EcoPulseContainer">
                 <div
                     className="EcoPulseBar"
@@ -68,25 +55,44 @@ function Product({ id, title, image, price, rating }) {
                         backgroundColor: ecoColor,
                         boxShadow: `0 0 8px ${ecoColor}AA`,
                     }}
-                    aria-label={`Eco Pulse Score: ${rating}%`}
                 ></div>
-                <span className="EcoPulseLabel"> <h3> {rating}% Eco Pulse</h3></span>
+                <span className="EcoPulseLabel"><h3>{rating}% Eco Score</h3></span>
             </div>
 
-            
             <div className="Greenproduct_buttons">
-        <button onClick={addToBasket} className="add-button">Add to Basket</button>
+                <button onClick={addToBasket} className="add-button">Add to Basket</button>
 
-        <div className="certification-section">
-          <img src="/certification1.png" alt="certification Icon" className="certification-icon" />
-          <button onClick={showCertifications} className="certifications-btn">Certifications</button>
-        </div>
-      </div>
-      <footer style={{ fontSize: '12px', color: 'gray', textAlign: 'center', marginTop: '40px' }}>
-        This is a fictional educational project. Not affiliated with Amazon or any real company.
-      </footer>
+                {certifications.length > 0 && (
+                    <div 
+                        className="certification-section-wrapper"
+                        onMouseEnter={() => setShowCertDialog(true)}
+                        onMouseLeave={() => setShowCertDialog(false)}
+                    >
+                        {showCertDialog && (
+                            <div className="certification-dialog">
+                                <h4>Certifications</h4>
+                                <ul style={{ padding: 0, margin: 0, listStyle: "none" }}>
+                                    {certifications.map((cert, index) => (
+                                        <li key={index} style={{ padding: "4px 0", color: "#2e7d32" }}>
+                                            ✅ {cert}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                        <div className="certification-section">
+                            <img src="/certification1.png" alt="Cert Icon" className="certification-icon" />
+                            <button className="certifications-btn">Certifications</button>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <Link to="/esgservices">
+                <button className="esg-button">ESG Services</button>
+            </Link>
         </div>
     );
 }
 
-export default Product;
+export default Greenproducts;

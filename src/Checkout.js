@@ -18,7 +18,7 @@ function Checkout() {
                      title = {item.title}
                      image = {item.image}
                      price = {item.price}
-                     rating = {item.rating}
+                     rating = {(item.rating<5?item.rating :Math.round(item.rating/20))}
                     />
                 ))}
             </div>

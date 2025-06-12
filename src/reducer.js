@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
-    user : null
+    user : null,
+    ecoPulse: 55,
 };
 //selector
 export const getBasketTotal = (basket)=>
@@ -13,6 +14,22 @@ const reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
+    case 'EMPTY_BASKET':
+      return{
+        ...state,
+        basket:[]
+      }
+      case 'SET_NOTIFICATIONS':
+            return {
+                ...state,
+                notifications: action.notifications
+            };
+      case "SET_ECOPULSE":
+  return {
+    ...state,
+    ecoPulse: action.payload,
+  };
+
     case "REMOVE_FROM_BASKET":
         const index = state.basket.findIndex(
             (basketItem) => basketItem.id=== action.id);

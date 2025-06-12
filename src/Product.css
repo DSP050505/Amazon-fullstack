@@ -26,6 +26,25 @@
     display: flex;
 }
 
+.product_rating_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.eco-friendly-badge {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .product > img {
     max-height: 200px;
     width: 100%;
@@ -33,7 +52,6 @@
     margin-bottom: 15px;
 }
 
-/* All buttons container */
 .product_buttons {
     display: flex;
     flex-direction: column;
@@ -42,7 +60,6 @@
     gap: 10px;
 }
 
-/* Add to Basket Button */
 .add-button {
     background: #f0c14b;
     border: 1px solid;
@@ -56,7 +73,6 @@
     max-width: 400px;
 }
 
-/* Impact section - icon + button */
 .impact-product-section {
     display: flex;
     align-items: center;
@@ -71,7 +87,6 @@
     object-fit: contain;
 }
 
-/* Impact Product Button */
 .impact-button {
     background: #d4edda;
     border: 1px solid #4caf50;
@@ -88,4 +103,29 @@
 
 .impact-button:hover {
     background: #c8e6c9;
+}
+
+.esg-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+    background-color: #57cb57;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.esg-button:hover {
+    background-color: #388e3c;
 }
